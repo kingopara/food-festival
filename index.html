@@ -9,12 +9,14 @@
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/bootstrap.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- link manifest file -->
+  <link rel="manifest" href="./dist/manifest.json">
 
   <!-- <script src='assets/js/vendor/jQuery.js' defer ></script> -->
   <!-- <script src='assets/js/vendor/bootstrap.js' defer ></script> -->
   <!-- <script src='assets/js/script.js'></script> -->
   <!-- <script src='./dist/script.min.js' defer ></script> -->
-  <script src='./dist/main.bundle.js' defer ></script>
+  <script src='./dist/app.bundle.js' defer ></script>
 
 </head>
 <body>
@@ -171,4 +173,29 @@
       <div class="footer-copyright text-center py-3 text-white">© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.</div>        
     </footer>
 </body>
+<script>
+  // register service worker
+  (function() {
+    if("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./service-worker.js")
+        .then(() => console.log("Service Worker registered successfully."))
+        .catch(error => console.log("Service Worker registration failed:", error));
+    }
+  })();
+</script>
 </html>
+
+<!-- "devDependencies": {
+  "file-loader": "^6.2.0",
+  "webpack": "^4.46.0",
+  "webpack-bundle-analyzer": "^4.4.2",
+  "webpack-cli": "^4.6.0",
+  "webpack-dev-server": "^4.2.0"
+},
+"dependencies": {
+  "@popperjs/core": "^2.10.1",
+  "bootstrap": "^4.6",
+  "image-webpack-loader": "^7.0.1",
+  "jquery": "^3.6.0",
+  "popper.js": "^1.16.1"
+} -->
